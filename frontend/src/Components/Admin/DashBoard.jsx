@@ -5,6 +5,7 @@ import { MdOutlineMenu } from "react-icons/md";
 const DashBoard = () => {
   const [data, setData] = useState([]);
   const [showMenu, setShowMenu] = useState(false);
+  const [visibleItems, setVisibleItems] = useState(5);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,7 +22,7 @@ const DashBoard = () => {
     }
   };
 
-  const filteredData = data.filter((item) => item.role === "user");
+  const filteredData = data.filter((item) => item.role === "user").slice(0, visibleItems);
 
   const deleteUser = async (id) => {
     try {
@@ -59,12 +60,18 @@ const DashBoard = () => {
     navigate(`/update/${id}`);
   };
 
+  const loadMore = () => {
+    setVisibleItems((prevVisibleItems) => prevVisibleItems + 5);
+  };
+  const makeuser=()=>{
+    navigate("/adduser")
+  }
   return (
     <>
       <div className="header">
         <div className="lft">
           <p>Home</p>
-          <p>Create User</p>
+          <p onClick={makeuser}>Create User</p>
           <p onClick={logout}>Logout</p>
         </div>
         <div className="sz" onClick={() => setShowMenu(!showMenu)}>
@@ -114,6 +121,9 @@ const DashBoard = () => {
             ))}
           </tbody>
         </table>
+        {visibleItems < data.length && (
+          <p onClick={loadMore}>Load More</p>
+        )}
       </div>
     </>
   );

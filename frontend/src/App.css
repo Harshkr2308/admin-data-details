@@ -393,8 +393,16 @@ button {
     }
 }
 
+.bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
 
-/* Additional responsive styles for the bar chart */
+
+/* 
+Additional responsive styles for the bar chart */
 
 @media screen and (max-width: 1200px) {
     .bar {

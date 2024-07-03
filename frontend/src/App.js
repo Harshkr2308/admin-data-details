@@ -7,12 +7,13 @@ import Profile from "./Components/Profile";
 import PrivateComponent from "./Components/PrivateComponent";
 import DashBoard from "./Components/Admin/DashBoard";
 import UpdateUser from "./Components/Admin/UpdateUser";
+import AddUser from "./Components/Admin/AddUser";
+
 const App = () => {
     return ( <
         div className = "app" >
         <
         Routes >
-
         <
         Route element = { < PrivateComponent / > } >
         <
@@ -24,15 +25,18 @@ const App = () => {
         /> <
         Route path = "/update/:id"
         element = { < UpdateUser / > }
-        /> < /
-        Route > <
+        /> <
+        Route path = "/adduser"
+        element = { < AddUser / > }
+        /> <
+        /Route> <
         Route path = "/login"
         element = { < Login / > }
         /> <
         Route path = "/"
         element = { < SignUP / > }
-        /> < /
-        Routes > <
+        /> <
+        /Routes> <
         /div>
     );
 };
