@@ -79,7 +79,7 @@ const DashBoard = () => {
           {showMenu && (
             <div className="menu-items">
               <p onClick={() => setShowMenu(false)}>Home</p>
-              <p onClick={() => setShowMenu(false)}>Create User</p>
+              <p onClick={makeuser}>Create User</p>
               <p onClick={logout}>Logout</p>
             </div>
           )}

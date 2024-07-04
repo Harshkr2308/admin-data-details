@@ -62,10 +62,6 @@ app.post("/login", async(req, resp) => {
 
                 if (passwordMatch) {
                     const userWithoutPassword = {...user.toObject() };
-                    // user.count += 1;
-                    // user.lastLoginDate = Date.now();
-                    // await user.save();
-
                     Jwt.sign({ user: userWithoutPassword },
                         jwtKey, { expiresIn: "2h" },
                         (err, token) => {
